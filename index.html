@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <title>Email Recruiter Today!</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <!-- IE < 10 support -->
+  <!--[if lte IE 9]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/style.css">
+  <link rel="stylesheet" type="text/css" href="./assets/footer.css">
+  <link rel="icon" href="./assets/img/favicon.ico" />
+</head>
+<body>
+
+  <!-- INTERFACE -->
+  <header>
+    <a href="./index.html"><img src="./assets/img/logo.png"/></a>
+    <div id="search-input"></div>
+    <div id="search-input-icon"></div>
+  </header>
+
+  <main>
+    <div id="right-column">
+      <div id="stats"></div>
+      <div id="active-filters"></div>
+      <div id="hits"></div>
+      <div id="pagination"></div>
+    </div>
+  </main>
+
+
+    <div class="container">
+      <div class="row">
+        <hr>
+        <div class="col-lg-12">
+          <div class="col-md-8">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScyEhZClyAtI1OQLxqp7MDaTw551V-rmYNooWt1ASxO94PS9Q/viewform">Contribute To Us</a>
+          </div>
+          <div class="col-md-4">
+            <p class="muted pull-right"><img src="https://www.algolia.com/static_assets/images/pricing/pricing_new/algolia-powered-by-14773f38.svg"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- TEMPLATES -->
+  <script type="text/html" id="hit-template">
+    <div class="hit">
+      <div class="hit-image">
+        <img src="{{hr_linkedin_avatar}}" alt="{{hr_name}}">
+      </div>
+      <div class="hit-content">
+        <h2 class="hit-name">{{{hr_name}}}</h2>
+        <p class="hit-category-breadcrumb"><i class="fa fa-building" aria-hidden="true"></i> {{{job_company}}}</p>
+        <br>
+        <a href="{{hr_linkedin}}" target="_blank" class="btn btn-block btn-social btn-linkedin hit-btn">
+          <span class="fa fa-linkedin"></span> Linkedin Profile
+        </a>
+        <a  href="mailto:{{hr_email}}" target="_blank" class="btn btn-block btn-social btn-reddit hit-btn">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email This Recruiter
+        </a>
+      </div>
+      <div class="hit-right">
+        <h2 class="hit-name">{{job_title}}</h2>
+        <p class="hit-category-breadcrumb"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job_location}}</p>
+        {{#job_tags}}
+          <span class="badge badge-default">{{.}}</span>
+        {{/job_tags}}
+        <br><br><br>
+        <a  href="{{job_link}}" target="_blank" class="btn btn-block btn-social btn-google hit-btn">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i> Apply
+        </a>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" id="no-results-template">
+    <div id="no-results-message">
+      <p>We didn't find any results for the search <em>"{{query}}"</em>.</p>
+      <a href="./index.html" class='clear-all'>Clear search</a>
+    </div>
+  </script>
+  <!-- /TEMPLATES -->
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+  <script src="search.js"></script>
+  <!-- /SCRIPTS -->
+
+
+</body>
+</html>
