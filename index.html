@@ -63,9 +63,11 @@
         <a href="{{hr_linkedin}}" target="_blank" class="btn btn-block btn-social btn-linkedin hit-btn">
           <span class="fa fa-linkedin"></span> Linkedin Profile
         </a>
-        <a  href="mailto:{{hr_email}}" target="_blank" class="btn btn-block btn-social btn-reddit hit-btn">
+        {{#hr_email}}
+        <a href="mailto:{{hr_email}}" target="_blank" class="btn btn-block btn-social btn-reddit hit-btn">
           <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Email This Recruiter
         </a>
+        {{/hr_email}}
       </div>
       <div class="hit-right">
         <h2 class="hit-name">{{job_title}}</h2>
